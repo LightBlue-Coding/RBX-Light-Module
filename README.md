@@ -21,3 +21,25 @@ thx for using this module.
 - You can easily manage instance attributes and distances,
 and extract specific IDs using the GetInstanceId function.
 It's also similar to Fusion's New function. It has a Children key and a separate OnEvent field.
+
+example Code
+```lua
+local Light = require(Game:GetService("ReplicatedStorage").Light)
+
+local scope = {}
+
+local Part = Light.NewInstance:New(scope, "Part")({
+  Size = Vector3.new(3, 3 ,3),
+  Parent = workspace,
+  Position = Vector3.new(0, 5 ,0),
+  Name = "Part",
+
+  [Light.Children] = {
+    -- pass
+  }
+})
+
+Light.OnEvent(Part, "Touched", function(this)
+  Light.OutPut:print("Touched")
+end)
+```
