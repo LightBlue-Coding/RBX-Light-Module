@@ -5,6 +5,8 @@ please contact us by email. - blizzard2035@gmail.com
 
 thx for using this module.
 
+You are welcome to use or remake this module for game development. However, you must show me the results of your remake. Please be sure to read the README before using this module.
+
 # functions
 
 1. Data
