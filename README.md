@@ -24,7 +24,7 @@ You are welcome to use or remake this module for game development. However, you 
 and extract specific IDs using the GetInstanceId function.
 It's also similar to Fusion's New function. It has a Children key and a separate OnEvent field.
 
-example Code
+example Codes
 ```lua
 local Light = require(Game:GetService("ReplicatedStorage").Light)
 
@@ -43,5 +43,32 @@ local Part = Light.NewInstance:New(scope, "Part")({
 
 Light.OnEvent(Part, "Touched", function(this) -- `this` refers to the instance that fired the event.
   Light.OutPut:print("Touched")
+end)
+```
+
+```lua
+local Light = require(Game:GetService("ReplicatedStorage").Light)
+
+local Bool = Light:State(false)
+
+task.spawn(function()
+  for _ in 1, 10 do
+    Bool.Toggle() -- Changes true to false and false to true. However, this function can only be called when the input value is of type boolean.
+end)
+
+Bool.OnChange(function(new, old) -- An event that occurs when the value of Bool changes. 
+  print(`{old} -> {new}`)
+end)
+```
+
+```lua
+local Light = require(Game:GetService("ReplicatedStorage").Light)
+
+Light.RunCode:RepeatForSecond(15, function(deltaTime) -- Repeat for 15 seconds. Entering return true will terminate the loop.
+  -- deltaTime tells us how much time has passed since the function was called.
+  
+  print(math.floor(deltaTime))
+end, function() -- The function is called when the loop ends.
+  print("loop Ended!")
 end)
 ```
