@@ -41,7 +41,7 @@ local Part = Light.NewInstance:New(scope, "Part")({
   }
 })
 
-Light.OnEvent(Part, "Touched", function(this)
+Light.OnEvent(Part, "Touched", function(this) -- `this` refers to the instance that fired the event.
   Light.OutPut:print("Touched")
 end)
 ```
